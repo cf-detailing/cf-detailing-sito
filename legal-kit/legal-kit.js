@@ -84,7 +84,7 @@
 
   function showBanner() {
     closeAll();
-    banner = el('<div class="lk-b" role="dialog" aria-label="Cookie"><div class="lk-i"><div><p class="lk-t">I tuoi cookie, la tua scelta.</p><p>Usiamo cookie tecnici necessari. Quelli di statistica e marketing, anche di terze parti, solo se acconsenti. Puoi accettare, rifiutare o scegliere. Dettagli nella <a href="' + C.paths.cookie + '">Cookie Policy</a> e nella <a href="' + C.paths.privacy + '">Privacy Policy</a>. Se non scegli, restano attivi solo i cookie necessari.</p></div><div class="lk-a"><button class="lk-btn o" data-a="rej">Rifiuta tutti</button><button class="lk-btn o" data-a="cus">Personalizza</button><button class="lk-btn" data-a="acc">Accetta tutti</button></div></div></div>');
+    banner = el('<div class="lk-b" role="dialog" aria-label="Cookie"><div class="lk-i"><div><p class="lk-t">I tuoi cookie, la tua scelta.</p><p>Usiamo cookie tecnici necessari. Quelli di statistica e marketing, anche di terze parti, solo se acconsenti. Puoi accettare, rifiutare o scegliere. Dettagli nella <a href="' + C.paths.cookie + '">Cookie Policy</a> e nella <a href="' + C.paths.privacy + '">Privacy Policy</a>. Se non scegli, restano attivi solo i cookie necessari.</p></div><div class="lk-a"><button class="lk-btn" data-a="rej">Rifiuta tutti</button><button class="lk-btn o" data-a="cus">Personalizza</button><button class="lk-btn" data-a="acc">Accetta tutti</button></div></div></div>');
     banner.addEventListener("click", function (e) {
       var a = e.target.dataset.a; if (!a) return;
       if (a === "acc") { save({ analytics: 1, marketing: 1, preferences: 1 }); closeAll(); }
@@ -102,7 +102,7 @@
       ["preferences", "Preferenze", "Ricordano le tue scelte (lingua, ecc.).", cur.preferences]];
     modal = el('<div class="lk-ov"><div class="lk-m" role="dialog" aria-modal="true"><h3 class="lk-t">Le tue preferenze sui cookie.</h3><p>Scegli quali categorie autorizzare. Puoi cambiare idea in ogni momento dal link «Gestisci cookie» nel footer.</p>' +
       rows.map(function (r) { return '<label class="lk-r"><span><strong>' + r[1] + '</strong><small>' + r[2] + '</small></span><input type="checkbox" data-k="' + r[0] + '"' + (r[3] ? " checked" : "") + (r[0] === "necessary" ? " disabled" : "") + "></label>"; }).join("") +
-      '<div class="lk-a" style="margin-top:16px"><button class="lk-btn o" data-a="rej">Rifiuta tutti</button><button class="lk-btn o" data-a="sel">Salva scelte</button><button class="lk-btn" data-a="acc">Accetta tutti</button></div></div></div>');
+      '<div class="lk-a" style="margin-top:16px"><button class="lk-btn" data-a="rej">Rifiuta tutti</button><button class="lk-btn o" data-a="sel">Salva scelte</button><button class="lk-btn" data-a="acc">Accetta tutti</button></div></div></div>');
     modal.addEventListener("click", function (e) {
       var a = e.target.dataset.a; if (!a) return;
       var c = { analytics: 0, marketing: 0, preferences: 0 };
